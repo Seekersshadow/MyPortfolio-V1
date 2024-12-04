@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import OpeningScreen from './Components/Preloader/OpeningScreen'
 import './Global.css'
+import Home from './Components/Home/Home'
 const Main = () => {
+  let [loading,setLoading] = useState(true)
+  useEffect(()=>{
+    setTimeout(()=>{
+      setLoading(false)
+    },4000)
+  })
   return (
     <div className='bodyMain'>
-        <OpeningScreen/>
+        {loading?<OpeningScreen/>:<Home/>}
     </div>
   )
 }
